@@ -1,0 +1,42 @@
+agregue el delete a secciones
+
+# --------------
+# Please enter the commit message for your changes. Everything below
+# this paragraph is ignored, and an empty message aborts the commit.
+# Just close the window to accept your message.
+diff --git a/secciones/delete.php b/secciones/delete.php
+new file mode 100644
+index 0000000..726d7fc
+--- /dev/null
++++ b/secciones/delete.php
+@@ -0,0 +1,17 @@
++<?php
++error_reporting(E_ALL);
++ini_set('display_errors', '1');
++
++include('../dbc/dbconnect.php');
++include('../dbc/secciones.php');
++
++$dbconnect = new dbconnect('playersDB');
++$dbc = $dbconnect->getConnection();
++$seccionesDAO = new seccionesDAO($dbc);
++
++if (isset($_GET['id'])){
++	$id = $_GET['id'];
++	$seccion = $seccionesDAO->deleteSeccion($id);
++}
++header("Location:index.php");
++?>
+diff --git a/secciones/index.php b/secciones/index.php
+index a067db3..fcbfd25 100644
+--- a/secciones/index.php
++++ b/secciones/index.php
+@@ -30,7 +30,7 @@ $secciones = $seccionesDAO->getSecciones();
+ 		echo '<tr>
+ 		<td>'.$s->nombre.'</td>
+ 		<td>'.$s->area.'</td>
+-		<td><a href="edit.php?id='.$s->seccion_id.'">Editar</a></td>
++		<td><a href="edit.php?id='.$s->seccion_id.'">Editar</a> &nbsp; <a href="delete.php?id='.$s->seccion_id.'">Borrar</a></td>
+ 		</tr>';
+ 	}
+ ?>

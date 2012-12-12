@@ -30,7 +30,7 @@ $secciones = $seccionesDAO->getSecciones();
 		echo '<tr>
 		<td>'.$s->nombre.'</td>
 		<td>'.$s->area.'</td>
-		<td><a href="edit.php?id='.$s->seccion_id.'">Editar</a></td>
+		<td><a href="edit.php?id='.$s->seccion_id.'">Editar</a> &nbsp; <a href="delete.php?id='.$s->seccion_id.'">Borrar</a></td>
 		</tr>';
 	}
 ?>
