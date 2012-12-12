@@ -1,0 +1,14 @@
+body{
+	font-family: "Myriad Apple", Arial, sans-serif;
+}
+fieldset{
+	border: none;	
+}
+table, td, th{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+td, th{
+	
+	padding: 5px;
+}
